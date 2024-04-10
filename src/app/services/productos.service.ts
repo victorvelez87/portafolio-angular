@@ -20,7 +20,7 @@ export class ProductosService {
     return new Promise ( ( resolve, reject) => {
       this.http.get('https://angular-html-f6cfd-default-rtdb.europe-west1.firebasedatabase.app/productos_idx.json')
         .subscribe( (resp: any) => {
-
+          console.log(resp);
           this.productos = resp;
           this.cargando = false;
       });
@@ -57,9 +57,9 @@ export class ProductosService {
 
       const tituloLower = prod.titulo?.toLocaleLowerCase();
 
-      if ( prod.categoria?.indexOf( termino ) >= 0 || tituloLower.indexOf( termino ) >= 0 ) {
+     /*  if ( prod?.categoria?.indexOf( termino ) >= 0 || tituloLower.indexOf( termino ) >= 0 ) {
         this.productosFiltrado.push( prod );
-      }
+      } */
     });
   }
 }
